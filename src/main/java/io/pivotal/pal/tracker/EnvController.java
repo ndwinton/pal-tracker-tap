@@ -11,20 +11,20 @@ import java.util.Map;
 public class EnvController {
 
     private final String port;
-    private final String memoryLimit;
-    private final String cfInstanceIndex;
-    private final String cfInstanceAddress;
+    private final String hostname;
+    private final String kubernetesPort;
+    private final String kRevision;
 
     public EnvController(
         @Value("${port:NOT SET}") String port,
-        @Value("${memory.limit:NOT SET}") String memoryLimit,
-        @Value("${cf.instance.index:NOT SET}") String cfInstanceIndex,
-        @Value("${cf.instance.addr:NOT SET}") String cfInstanceAddress
+        @Value("${hostname:NOT SET}") String hostname,
+        @Value("${kubernetes.port:NOT SET}") String kubernetesPort,
+        @Value("${k.revision:NOT SET}") String kRevision
     ) {
         this.port = port;
-        this.memoryLimit = memoryLimit;
-        this.cfInstanceIndex = cfInstanceIndex;
-        this.cfInstanceAddress = cfInstanceAddress;
+        this.hostname = hostname;
+        this.kubernetesPort = kubernetesPort;
+        this.kRevision = kRevision;
     }
 
     @GetMapping("/env")
@@ -32,9 +32,9 @@ public class EnvController {
         Map<String, String> env = new HashMap<>();
 
         env.put("PORT", port);
-        env.put("MEMORY_LIMIT", memoryLimit);
-        env.put("CF_INSTANCE_INDEX", cfInstanceIndex);
-        env.put("CF_INSTANCE_ADDR", cfInstanceAddress);
+        env.put("HOSTNAME", hostname);
+        env.put("KUBERNETES_PORT", kubernetesPort);
+        env.put("K_REVISION", kRevision);
 
         return env;
     }
