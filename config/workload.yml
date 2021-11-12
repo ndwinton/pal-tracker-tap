@@ -1,0 +1,20 @@
+---
+apiVersion: carto.run/v1alpha1
+kind: Workload
+metadata:
+  labels:
+    apps.tanzu.vmware.com/workload-type: web
+  name: pal-tracker-tap
+  namespace: default
+spec:
+  env:
+  - name: WELCOME_MESSAGE
+    value: Hello from TAP
+  params:
+  - name: tekton-pipeline-name
+    value: pal-tracker-pipeline
+  source:
+    git:
+      ref:
+        branch: main
+      url: https://github.com/ndwinton/pal-tracker-tap
