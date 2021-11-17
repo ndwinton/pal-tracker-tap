@@ -22,7 +22,7 @@ dependencyManagement {
 
 dependencies {
     implementation 'org.springframework.boot:spring-boot-starter-web'
-    implementation 'org.springframework.cloud:spring-cloud-starter-kubernetes-client-config'
+    implementation 'org.springframework.cloud:spring-cloud-starter-kubernetes-fabric8-config'
     testImplementation 'org.springframework.boot:spring-boot-starter-test'
 }
 
@@ -32,8 +32,10 @@ test {
 
 bootRun.environment([
         "WELCOME_MESSAGE": "howdy",
+        "SPRING_CLOUD_KUBERNETES_ENABLED": "false",
 ])
 
 test.environment([
         "WELCOME_MESSAGE": "Hello from test",
+        "SPRING_CLOUD_KUBERNETES_ENABLED": "false",
 ])
