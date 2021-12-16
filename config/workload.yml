@@ -4,12 +4,13 @@ kind: Workload
 metadata:
   labels:
     apps.tanzu.vmware.com/workload-type: web
+    apps.tanzu.vmware.com/has-tests: "true"
   name: pal-tracker-tap
   namespace: default
 spec:
   env:
   - name: WELCOME_MESSAGE
-    value: Hello from TAP
+    value: Hello from TAP (environment)
   params:
   - name: tekton-pipeline-name
     value: pal-tracker-pipeline

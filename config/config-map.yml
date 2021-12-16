@@ -3,4 +3,4 @@ kind: ConfigMap
 metadata:
   name: pal-tracker-tap-properties
 data:
-  welcome.message: Hello from TAP
+  welcome.message: Hello from TAP (config-map)

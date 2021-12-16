@@ -2,6 +2,8 @@ apiVersion: tekton.dev/v1beta1
 kind: Pipeline
 metadata:
   name: pal-tracker-pipeline
+  labels:
+    apps.tanzu.vmware.com/pipeline: test
 spec:
   params:
     - name: source-url
