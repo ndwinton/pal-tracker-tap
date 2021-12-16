@@ -30,8 +30,8 @@ spec:
     apiVersion: serving.knative.dev/v1
     kind: Service
     metadata:
+      #! annotations NOT merged because knative annotations would be invalid here
       name: #@ data.values.workload.metadata.name
-      annotations: #@ merge_annotations({})
       labels: #@ merge_labels({ "app.kubernetes.io/component": "run", "carto.run/workload-name": data.values.workload.metadata.name })
     spec:
       template: #@ data.values.config
